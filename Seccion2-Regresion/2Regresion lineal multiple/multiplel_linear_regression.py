@@ -28,3 +28,38 @@ regression.fit(X_train, Y_train);
 
 #prediccion de los resultados en el conjunto de testing
 y_pred = regression.predict(X_test);
+
+#construir el modelo optimo de la RLM utilizando la Eliminacion hacia atras
+import statsmodels.api as sm;
+X = np.append(arr = np.ones((50,1)).astype(int), values = X, axis = 1);
+SL = 0.05;
+
+X_opt = X[:, [0,1,2,3,4,5]];
+regression_OLS = sm.OLS(endog = Y, exog = X_opt).fit();
+datos = regression_OLS.summary();
+
+X_opt = X[:, [0,1,3,4,5]];
+regression_OLS = sm.OLS(endog = Y, exog = X_opt).fit();
+datos = regression_OLS.summary();
+
+X_opt = X[:, [0,3,4,5]];
+regression_OLS = sm.OLS(endog = Y, exog = X_opt).fit();
+datos = regression_OLS.summary();
+
+X_opt = X[:, [0,3,5]];
+regression_OLS = sm.OLS(endog = Y, exog = X_opt).fit();
+datos = regression_OLS.summary();
+
+X_opt = X[:, [0,3]];
+regression_OLS = sm.OLS(endog = Y, exog = X_opt).fit();
+datos = regression_OLS.summary();
+
+
+
+
+
+
+
+
+
+
