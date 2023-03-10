@@ -1,7 +1,7 @@
 #Importar librerias
 import numpy as np;
 import matplotlib.pyplot as plt;
-import pandas as pd;
+import pandas as pd; 
 
 #Importar el dataset
 dataset = pd.read_csv('Position_Salaries.csv')
@@ -26,7 +26,8 @@ regression = SVR(kernel="rbf")
 regression.fit(X,Y)
 
 #Prediccion de nuestros modelos
-y_pred= regression.predict([[6.5]])
+y_pred= sc_y.inverse_transform(regression.predict(sc_X.transform([[6.5]])))
+
 
 #Visualizacion de los resultados del Modelo Polinomico
 #X_grid = np.arange(min(X), max(X), 0.1);
